@@ -4,6 +4,8 @@ subtitle: "サブタイトルはあってもなくてもよい"
 author: "大谷由伸"
 supervisor: "矢内勇生"
 year: "2026年度"
+project:
+    output-dir: _output
 format:
   pdf:
     latex-tinytex: false
