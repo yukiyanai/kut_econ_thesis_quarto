@@ -1,0 +1,218 @@
+%% kut_econ_template.tex
+%%
+%% 高知工科大学 経済・マネジメント学群 卒論テンプレート
+%% Quarto -> PDF 用
+%%
+%% Author: 矢内 勇生 (Yuki YANAI)  <yanai.yuki@kochi-tech.ac.jp>
+%% Created: 2026-04-08
+
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+
+%\providecommand{\pandocbounded}[1]{#1} %% Fix: thanks to Kusakawa-sensei
+
+\documentclass[a4paper, 10.5pt]{ltjsarticle}
+% フォントの設定: IPAex を採用（Rで作った図のフォントと揃えるため）
+% 原ノ味フォントを使う場合 -> jafont=ipaex を削除
+% ヒラギノを使う場合 -> jafont=hiragino-pron に変更
+
+\usepackage[top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{color}
+\usepackage{natbib}
+\bibpunct[:\,]{(}{)}{;}{}{}{,}
+\usepackage{flafter}
+\usepackage{tabularx}
+
+% フォントの設定: IPAex を採用（Rで作った図のフォントと揃えるため）
+% 原ノ味フォントを使う場合 -> ipaex を削除
+% ヒラギノを使う場合 -> ipaex を hiragino-pron に変更
+\usepackage{luatexja}
+\usepackage[ipaex]{luatexja-preset}
+
+\usepackage{unicode-math}
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath}
+}{}
+\usepackage{xcolor}
+\usepackage{float}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{}
+\usepackage{bookmark,hyperref}
+\hypersetup{
+$if(title-meta)$
+  pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+  pdfauthor={$author-meta$},
+$endif$
+$if(lang)$
+  pdflang={$lang$},
+$endif$
+$if(subject)$
+  pdfsubject={$subject$},
+$endif$
+$if(keywords)$
+  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+  bookmarksnumbered=true,
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=cyan,
+  citecolor=teal,
+  hyperfootnotes=true,
+  setpagesize=false,
+  pdfcreator={LaTeX via pandoc from R Markdown}}
+\urlstyle{same}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{bookmark}
+\usepackage{indentfirst}
+\parindent=1em
+\usepackage{dcolumn}
+\newcolumntype{.}{D{.}{.}{-1}}
+\usepackage{caption}
+\captionsetup[table]{name=表}
+\captionsetup[figure]{name=図}
+\usepackage{selnolig}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] %
+ {%
+  \setlength{\parindent}{0pt}
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+% Rコードを付録・補遺で表示する際に背景のshadeを有効に
+$if(highlighting-macros)$
+  $highlighting-macros$
+$endif$
+
+$if(title)$
+  \title{\vspace{-28pt}{\Large\gtfamily\bfseries $title$}}
+$endif$
+$if(subtitle)$
+  \usepackage{etoolbox}
+  \makeatletter
+  \providecommand{\subtitle}[1]{
+    \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+  }
+  \makeatother
+  \subtitle{\large\gtfamily\bfseries \vskip 0.4em $subtitle$\vspace{-8pt}}
+$endif$
+\author{\large $author$\\ 指導教員　$supervisor$}
+\date{} % 日付は表示しない
+
+% 節と小節のタイトルのフォントサイズを設定
+%\usepackage{titlesec}
+%\titleformat*{\section}{\large\selectfont\bfseries}
+%\titleformat*{\subsection}{\normalsize\selectfont\bfseries}
+%\titlespacing*{\section}{0pt}{2em}{4pt}
+%\titlespacing*{\subsection}{0pt}{1.5em}{4pt}
+
+\addtolength{\footskip}{10mm} % ページ番号を下にずらす
+\renewcommand{\baselinestretch}{1.2} % 行間を調整
+\renewcommand{\thefootnote}{\arabic{footnote}} % 脚注番号のラベルを変更
+
+
+\begin{document}
+
+%表紙
+\thispagestyle{empty}
+\begin{center}
+\Large
+高知工科大学　経済・マネジメント学群 \\
+$year$　卒業論文\\
+\vspace{36truemm}
+{\LARGE\gtfamily\bfseries $title$}\\
+\vspace{4truemm}
+$if(subtitle)$
+  {\Large\gtfamily\bfseries $subtitle$}
+$endif$
+\vfill
+氏名　$author$ \\
+\vspace{8truemm}
+指導教員氏名　$supervisor$
+\end{center}
+
+%要旨
+\newpage
+\maketitle
+\thispagestyle{empty} 
+%要旨は必ず1ページ！
+
+\noindent
+\textbf{研究背景}
+
+$background$
+
+\vspace{4truemm}
+\noindent
+\textbf{研究目的}
+
+$purpose$
+
+\vspace{4truemm}
+\noindent
+\textbf{研究方法}
+
+$method$
+
+\vspace{4truemm}
+\noindent
+\textbf{分析結果}
+
+$result$
+
+\vspace{4truemm}
+\noindent
+\textbf{考察・結論}
+
+$conclusion$
+
+\newpage
+\pagenumbering{arabic}
+
+$body$
+
+\bibliographystyle{jecon}
+\bibliography{myrefs}
+
+
+$if(thanks)$
+  \vspace{4truemm}
+  \noindent
+  \textbf{\Large 謝辞}
+
+  $thanks$
+
+$endif$
+
+\end{document}
