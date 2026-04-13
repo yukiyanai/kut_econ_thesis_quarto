@@ -1,10 +1,11 @@
-%% kut_econ_template.tex
+%% kut_econ_template2.tex
 %%
 %% 高知工科大学 経済・マネジメント学群 卒論テンプレート
 %% Quarto -> PDF 用
 %%
 %% Author: 矢内 勇生 (Yuki YANAI)  <yanai.yuki@kochi-tech.ac.jp>
 %% Created: 2026-04-08
+%% Modified: 2026-04-13
 
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
@@ -12,9 +13,6 @@
 \providecommand{\pandocbounded}[1]{#1} %% Fix: thanks to Kusakawa-sensei
 
 \documentclass[a4paper, 10.5pt]{ltjsarticle}
-% フォントの設定: IPAex を採用（Rで作った図のフォントと揃えるため）
-% 原ノ味フォントを使う場合 -> jafont=ipaex を削除
-% ヒラギノを使う場合 -> jafont=hiragino-pron に変更
 
 \usepackage[top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
 \usepackage{amsmath,amssymb}
@@ -25,10 +23,10 @@
 \usepackage{flafter}
 \usepackage{tabularx}
 
+\usepackage{luatexja}
 % フォントの設定: IPAex を採用（Rで作った図のフォントと揃えるため）
 % 原ノ味フォントを使う場合 -> ipaex を削除
 % ヒラギノを使う場合 -> ipaex を hiragino-pron に変更
-\usepackage{luatexja}
 \usepackage[ipaex]{luatexja-preset}
 
 \usepackage{unicode-math}
